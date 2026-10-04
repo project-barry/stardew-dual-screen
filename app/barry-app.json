@@ -1,0 +1,11 @@
+{
+  "format": 1,
+  "id": "io.github.project-barry.stardew",
+  "name": "Stardew Dual Screen",
+  "version": "1.0.0",
+  "main": "main.qml",
+  "icon": "icon.svg",
+  "description": "Stardew Valley's companion screen: day, bag, farm, map, journal, villagers, crafting, calendar and bundles, live from your game. Needs SMAPI and Profmags' Stardew Valley Dual Screen Mod (github.com/JoeCorrell/AYN-Thor-Dualscreen-Mods) in the game.",
+  "author": "Project Barry; game-side mod by Profmags (AYN Thor DualScreen Mods, JoeCorrell / WEMU)",
+  "homepage": "https://github.com/project-barry/stardew-dual-screen"
+}

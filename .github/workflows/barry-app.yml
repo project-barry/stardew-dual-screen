@@ -1,0 +1,53 @@
+# The Barry Launcher app in app/: checked against the stand-in game, packed
+# with Barry Launcher's barry-app tool, and released on v* tags.
+name: barry-app
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: barry-app tool
+        run: |
+          mkdir -p .barry-tools
+          for f in barry-app barry_apps.py; do
+            curl -fsSL "https://raw.githubusercontent.com/project-barry/barry-launcher-apps/main/tools/$f" -o ".barry-tools/$f"
+          done
+      - name: Check
+        run: python3 .barry-tools/barry-app check app
+      - name: The socket, against the stand-in game (2.0 and 0.3)
+        run: |
+          python3 tools/fake_stardew.py --port 7786 &
+          python3 tools/fake_stardew.py --port 7787 --old &
+          sleep 1
+          python3 tools/smoke_test.py --port 7786
+          python3 tools/smoke_test.py --port 7787
+      - name: Pack
+        run: |
+          version=$(python3 -c "import json; print(json.load(open('app/barry-app.json'))['version'])")
+          python3 .barry-tools/barry-app pack app -o "stardew-$version.zip"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stardew
+          path: stardew-*.zip
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" stardew-*.zip --title "Stardew Dual Screen $GITHUB_REF_NAME" --notes "Install stardew-*.zip with the Barry Launcher plugin (Apps › Install app…) or barry-app install.
+
+          **The game side is the Stardew Valley Dual Screen Mod by Profmags, from JoeCorrell's [AYN Thor DualScreen Mods](https://github.com/JoeCorrell/AYN-Thor-Dualscreen-Mods).** Install SMAPI and their mod (from [their releases](https://github.com/JoeCorrell/AYN-Thor-Dualscreen-Mods/releases)) in Stardew Valley. This app is a separate client for their mod and contains none of their code. See the README."

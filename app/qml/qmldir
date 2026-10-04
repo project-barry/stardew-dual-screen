@@ -1,0 +1,25 @@
+singleton Ui 1.0 Ui.qml
+Game 1.0 Game.qml
+Pixel 1.0 Pixel.qml
+Panel 1.0 Panel.qml
+Backdrop 1.0 Backdrop.qml
+Label 1.0 Label.qml
+Button 1.0 Button.qml
+Slot 1.0 Slot.qml
+Hearts 1.0 Hearts.qml
+Meter 1.0 Meter.qml
+Toggle 1.0 Toggle.qml
+Chip 1.0 Chip.qml
+ListPanel 1.0 ListPanel.qml
+Header 1.0 Header.qml
+Tabs 1.0 Tabs.qml
+WaitingPage 1.0 WaitingPage.qml
+BackpackPage 1.0 BackpackPage.qml
+FarmPage 1.0 FarmPage.qml
+MapPage 1.0 MapPage.qml
+JournalPage 1.0 JournalPage.qml
+PeoplePage 1.0 PeoplePage.qml
+CraftingPage 1.0 CraftingPage.qml
+CalendarPage 1.0 CalendarPage.qml
+BundlesPage 1.0 BundlesPage.qml
+SettingsPage 1.0 SettingsPage.qml
