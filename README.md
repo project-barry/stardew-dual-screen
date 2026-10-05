@@ -7,6 +7,9 @@
 > decisions and did the hands-on testing. Review the code before you rely on
 > it. See [a note from lavachemist](https://github.com/project-barry), a human, on Project Barry and generative AI.
 
+> [!TIP]
+> **Join the Project Barry community on Discord:** https://discord.gg/KSCCwcGG3
+
 > [!NOTE]
 > ## Credit where it's due
 >
