@@ -9,6 +9,8 @@
 
 > [!TIP]
 > **Join the Project Barry community on Discord:** https://discord.gg/euPurKCWc4
+>
+> **Watch Project Barry on YouTube:** https://www.youtube.com/@Project-Barry
 
 > [!NOTE]
 > ## Credit where it's due
